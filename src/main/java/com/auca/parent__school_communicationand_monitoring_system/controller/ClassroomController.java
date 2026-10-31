@@ -63,4 +63,9 @@ public class ClassroomController {
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
+
+    @GetMapping("/free")
+    public ResponseEntity<List<Classroom>> getFreeClassrooms() {
+        return ResponseEntity.ok(classroomService.getFreeClassrooms());
+    }
 }

@@ -8,14 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.auca.parent__school_communicationand_monitoring_system.domain.Student;
 import com.auca.parent__school_communicationand_monitoring_system.repository.StudentRepository;
+import com.auca.parent__school_communicationand_monitoring_system.repository.TeacherRepository;
 
 @Service
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final TeacherRepository teacherRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, TeacherRepository teacherRepository) {
         this.studentRepository = studentRepository;
+        this.teacherRepository = teacherRepository;
     }
 
     public String saveStudent(Student student) {
@@ -56,5 +59,12 @@ public class StudentService {
 
     public List<Student> getStudentsByLastName(String lastName) {
         return studentRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+
+    public Optional<List<Student>> getStudentsOfTeacher(UUID teacherId) {
+        if (!teacherRepository.existsById(teacherId)) {
+            return Optional.empty();
+        }
+        return Optional.of(studentRepository.findStudentsByTeacherId(teacherId));
     }
 }

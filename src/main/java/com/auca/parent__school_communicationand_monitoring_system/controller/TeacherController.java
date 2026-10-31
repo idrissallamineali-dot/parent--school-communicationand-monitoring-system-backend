@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.parent__school_communicationand_monitoring_system.domain.Teacher;
@@ -62,5 +63,11 @@ public class TeacherController {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-subject")
+    public ResponseEntity<List<Teacher>> getBySubject(@RequestParam String name) {
+        List<Teacher> teachers = teacherService.getTeachersBySubject(name);
+        return ResponseEntity.ok(teachers);
     }
 }

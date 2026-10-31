@@ -50,4 +50,8 @@ public class ClassroomService {
         classroomRepository.deleteById(id);
         return "Classroom deleted successfully";
     }
+
+    public List<Classroom> getFreeClassrooms() {
+        return classroomRepository.findFreeClassrooms();
+    }
 }
