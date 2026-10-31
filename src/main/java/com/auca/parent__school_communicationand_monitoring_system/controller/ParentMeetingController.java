@@ -71,6 +71,9 @@ public class ParentMeetingController {
         if (message.equals("The parent meeting with that id does not exist")) {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
+        if (message.equals("That parent meeting has meeting notes, delete them first")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 

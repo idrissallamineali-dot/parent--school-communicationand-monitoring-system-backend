@@ -9,15 +9,20 @@ import org.springframework.stereotype.Service;
 
 import com.auca.parent__school_communicationand_monitoring_system.domain.MeetingStatus;
 import com.auca.parent__school_communicationand_monitoring_system.domain.ParentMeeting;
+import com.auca.parent__school_communicationand_monitoring_system.repository.MeetingNoteRepository;
 import com.auca.parent__school_communicationand_monitoring_system.repository.ParentMeetingRepository;
 
 @Service
 public class ParentMeetingService {
 
     private final ParentMeetingRepository parentMeetingRepository;
+    private final MeetingNoteRepository meetingNoteRepository;
 
-    public ParentMeetingService(ParentMeetingRepository parentMeetingRepository) {
+    public ParentMeetingService(
+            ParentMeetingRepository parentMeetingRepository,
+            MeetingNoteRepository meetingNoteRepository) {
         this.parentMeetingRepository = parentMeetingRepository;
+        this.meetingNoteRepository = meetingNoteRepository;
     }
 
     public String saveParentMeeting(ParentMeeting parentMeeting) {
@@ -64,10 +69,15 @@ public class ParentMeetingService {
     }
 
     public String deleteParentMeeting(UUID id) {
-        if (!parentMeetingRepository.existsById(id)) {
+        Optional<ParentMeeting> meetingOpt = parentMeetingRepository.findById(id);
+        if (meetingOpt.isEmpty()) {
             return "The parent meeting with that id does not exist";
         }
-        parentMeetingRepository.deleteById(id);
+        ParentMeeting meeting = meetingOpt.get();
+        if (meetingNoteRepository.existsByParentMeeting(meeting)) {
+            return "That parent meeting has meeting notes, delete them first";
+        }
+        parentMeetingRepository.delete(meeting);
         return "Parent meeting deleted successfully";
     }
 
