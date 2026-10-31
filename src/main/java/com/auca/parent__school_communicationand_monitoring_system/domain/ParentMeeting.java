@@ -38,4 +38,46 @@ public class ParentMeeting {
     private Teacher teacher;
 
 
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+    public LocalDate getMeetingDate() {
+        return meetingDate;
+    }
+    public void setMeetingDate(LocalDate meetingDate) {
+        this.meetingDate = meetingDate;
+    }
+    public MeetingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(MeetingStatus status) {
+        this.status = status;
+    }
+    public String getReason() {
+        return reason;
+    }
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+    public Student getStudent() {
+        return student;
+    }
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+
+
 }
