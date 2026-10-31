@@ -1,11 +1,13 @@
 package com.auca.parent__school_communicationand_monitoring_system.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.auca.parent__school_communicationand_monitoring_system.domain.MeetingStatus;
 import com.auca.parent__school_communicationand_monitoring_system.domain.ParentMeeting;
 import com.auca.parent__school_communicationand_monitoring_system.repository.ParentMeetingRepository;
 
@@ -56,5 +58,13 @@ public class ParentMeetingService {
         }
         parentMeetingRepository.deleteById(id);
         return "Parent meeting deleted successfully";
+    }
+
+    public List<ParentMeeting> getMeetingsByStatus(MeetingStatus status) {
+        return parentMeetingRepository.findByStatusOrderByMeetingDateAsc(status);
+    }
+
+    public List<ParentMeeting> getMeetingsBetween(LocalDate start, LocalDate end) {
+        return parentMeetingRepository.findByMeetingDateBetweenOrderByMeetingDateAsc(start, end);
     }
 }

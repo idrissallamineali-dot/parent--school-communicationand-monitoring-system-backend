@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.parent__school_communicationand_monitoring_system.domain.Student;
@@ -62,5 +63,11 @@ public class StudentController {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-last-name")
+    public ResponseEntity<List<Student>> getByLastName(@RequestParam String lastName) {
+        List<Student> students = studentService.getStudentsByLastName(lastName);
+        return ResponseEntity.ok(students);
     }
 }
