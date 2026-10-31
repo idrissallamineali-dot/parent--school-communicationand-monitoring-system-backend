@@ -106,4 +106,18 @@ public class ParentMeetingController {
         }
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
+
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getStatsByStatus() {
+        return ResponseEntity.ok(parentMeetingService.getStatsByStatus());
+    }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<String> cancelDay(
+            @RequestParam UUID teacherId,
+            @RequestParam String date) {
+        LocalDate parsedDate = LocalDate.parse(date);
+        String message = parentMeetingService.cancelTeacherMeetingsOnDate(teacherId, parsedDate);
+        return ResponseEntity.ok(message);
+    }
 }

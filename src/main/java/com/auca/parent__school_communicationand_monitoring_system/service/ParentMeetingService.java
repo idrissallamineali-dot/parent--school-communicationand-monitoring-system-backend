@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.auca.parent__school_communicationand_monitoring_system.domain.MeetingStatus;
 import com.auca.parent__school_communicationand_monitoring_system.domain.ParentMeeting;
@@ -112,5 +113,16 @@ public class ParentMeetingService {
         meeting.setStatus(newStatus);
         parentMeetingRepository.save(meeting);
         return "Parent meeting status updated successfully";
+    }
+
+    public List<Object[]> getStatsByStatus() {
+        return parentMeetingRepository.countParentMeetingsByStatus();
+    }
+
+    @Transactional
+    public String cancelTeacherMeetingsOnDate(UUID teacherId, LocalDate date) {
+        int count = parentMeetingRepository.cancelMeetingsForTeacherOnDate(
+                teacherId, date, MeetingStatus.DECLINED, MeetingStatus.HELD);
+        return count + " parent meetings cancelled";
     }
 }
