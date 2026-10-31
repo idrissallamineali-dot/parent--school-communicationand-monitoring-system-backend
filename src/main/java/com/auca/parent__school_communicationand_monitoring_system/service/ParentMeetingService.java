@@ -21,6 +21,18 @@ public class ParentMeetingService {
     }
 
     public String saveParentMeeting(ParentMeeting parentMeeting) {
+        if (parentMeeting.getMeetingDate() != null && parentMeeting.getMeetingDate().isBefore(LocalDate.now())) {
+            return "Parent meeting date cannot be in the past";
+        }
+
+        if (parentMeeting.getTeacher() != null && parentMeeting.getMeetingDate() != null) {
+            if (parentMeetingRepository.existsByTeacherAndMeetingDateAndStatusNot(
+                    parentMeeting.getTeacher(), parentMeeting.getMeetingDate(), MeetingStatus.DECLINED)) {
+                return "Teacher already has a parent meeting on that date";
+            }
+        }
+
+        parentMeeting.setStatus(MeetingStatus.REQUESTED);
         parentMeetingRepository.save(parentMeeting);
         return "Parent meeting saved successfully";
     }
@@ -40,7 +52,6 @@ public class ParentMeetingService {
         }
         ParentMeeting meeting = existing.get();
         meeting.setMeetingDate(data.getMeetingDate());
-        meeting.setStatus(data.getStatus());
         meeting.setReason(data.getReason());
         if (data.getStudent() != null) {
             meeting.setStudent(data.getStudent());
@@ -66,5 +77,30 @@ public class ParentMeetingService {
 
     public List<ParentMeeting> getMeetingsBetween(LocalDate start, LocalDate end) {
         return parentMeetingRepository.findByMeetingDateBetweenOrderByMeetingDateAsc(start, end);
+    }
+
+    public String updateStatus(UUID id, MeetingStatus newStatus) {
+        Optional<ParentMeeting> existing = parentMeetingRepository.findById(id);
+        if (existing.isEmpty()) {
+            return "The parent meeting with that id does not exist";
+        }
+
+        ParentMeeting meeting = existing.get();
+        MeetingStatus current = meeting.getStatus();
+
+        boolean allowed = false;
+        if (current == MeetingStatus.REQUESTED && (newStatus == MeetingStatus.ACCEPTED || newStatus == MeetingStatus.DECLINED)) {
+            allowed = true;
+        } else if (current == MeetingStatus.ACCEPTED && (newStatus == MeetingStatus.HELD || newStatus == MeetingStatus.DECLINED)) {
+            allowed = true;
+        }
+
+        if (!allowed) {
+            return "Cannot change status from " + current + " to " + newStatus;
+        }
+
+        meeting.setStatus(newStatus);
+        parentMeetingRepository.save(meeting);
+        return "Parent meeting status updated successfully";
     }
 }

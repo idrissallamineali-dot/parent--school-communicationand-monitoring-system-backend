@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,6 +33,12 @@ public class ParentMeetingController {
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody ParentMeeting parentMeeting) {
         String message = parentMeetingService.saveParentMeeting(parentMeeting);
+        if (message.equals("Parent meeting date cannot be in the past")) {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
+        if (message.equals("Teacher already has a parent meeting on that date")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        }
         return new ResponseEntity<>(message, HttpStatus.CREATED);
     }
 
@@ -81,5 +88,19 @@ public class ParentMeetingController {
         LocalDate endDate = LocalDate.parse(end);
         List<ParentMeeting> meetings = parentMeetingService.getMeetingsBetween(startDate, endDate);
         return ResponseEntity.ok(meetings);
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateStatus(
+            @PathVariable UUID id,
+            @RequestParam MeetingStatus status) {
+        String message = parentMeetingService.updateStatus(id, status);
+        if (message.equals("The parent meeting with that id does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        if (message.startsWith("Cannot change status from")) {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }

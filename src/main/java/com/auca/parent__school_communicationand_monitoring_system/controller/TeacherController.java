@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,5 +70,33 @@ public class TeacherController {
     public ResponseEntity<List<Teacher>> getBySubject(@RequestParam String name) {
         List<Teacher> teachers = teacherService.getTeachersBySubject(name);
         return ResponseEntity.ok(teachers);
+    }
+
+    @PutMapping("/{teacherId}/subjects/{subjectId}")
+    public ResponseEntity<String> addSubject(
+            @PathVariable UUID teacherId,
+            @PathVariable UUID subjectId) {
+        String message = teacherService.addSubjectToTeacher(teacherId, subjectId);
+        if (message.equals("The teacher with that id does not exist") || message.equals("That subject does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        if (message.equals("The teacher already has that subject")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{teacherId}/classroom")
+    public ResponseEntity<String> moveClassroom(
+            @PathVariable UUID teacherId,
+            @RequestParam int roomNumber) {
+        String message = teacherService.moveTeacherToClassroom(teacherId, roomNumber);
+        if (message.equals("The teacher with that id does not exist") || message.equals("The classroom with that roomNumber does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        if (message.equals("That classroom is taken by another teacher")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 }
