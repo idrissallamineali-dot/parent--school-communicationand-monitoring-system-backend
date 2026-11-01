@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -124,5 +126,9 @@ public class ParentMeetingService {
         int count = parentMeetingRepository.cancelMeetingsForTeacherOnDate(
                 teacherId, date, MeetingStatus.DECLINED, MeetingStatus.HELD);
         return count + " parent meetings cancelled";
+    }
+
+    public Page<ParentMeeting> getParentMeetingsPage(Pageable pageable) {
+        return parentMeetingRepository.findAll(pageable);
     }
 }

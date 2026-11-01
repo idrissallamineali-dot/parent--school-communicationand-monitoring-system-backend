@@ -6,6 +6,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -119,5 +123,18 @@ public class ParentMeetingController {
         LocalDate parsedDate = LocalDate.parse(date);
         String message = parentMeetingService.cancelTeacherMeetingsOnDate(teacherId, parsedDate);
         return ResponseEntity.ok(message);
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<Page<ParentMeeting>> getPage(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "meetingDate,desc") String sort) {
+        String[] sortParts = sort.split(",");
+        String sortField = sortParts[0];
+        Sort.Direction direction = (sortParts.length > 1 && sortParts[1].equalsIgnoreCase("asc"))
+                ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
+        return ResponseEntity.ok(parentMeetingService.getParentMeetingsPage(pageable));
     }
 }

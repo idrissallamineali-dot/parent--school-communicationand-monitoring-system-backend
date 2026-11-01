@@ -33,4 +33,8 @@ public interface ParentMeetingRepository extends JpaRepository<ParentMeeting, UU
             @Param("held") MeetingStatus held
     );
 
+    long countByMeetingDate(LocalDate date);
+
+    long countByStatus(MeetingStatus status);
+
 }
