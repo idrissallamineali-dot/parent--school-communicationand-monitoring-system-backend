@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+.postman/
+postman/
+seed.sql
+seed_meetings.sql
+

@@ -1,0 +1,1165 @@
+{
+  "info": {
+    "_postman_id": "492b9338-b862-4073-9bb4-34ef9dc31dcc",
+    "name": "parent--school-communicationand-monitoring-system-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Part A2 - CRUD Operations",
+      "item": [
+        {
+          "name": "A2 - Save Classroom",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 101\",\n  \"roomNumber\": 101\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get All Classrooms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get Classroom by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/f36a53de-ffd3-476f-b632-b7d3a1c39e71",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "f36a53de-ffd3-476f-b632-b7d3a1c39e71"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Update Classroom",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/update/f36a53de-ffd3-476f-b632-b7d3a1c39e71",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "update",
+                "f36a53de-ffd3-476f-b632-b7d3a1c39e71"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Room 101 Updated\",\n  \"roomNumber\": 101\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Classroom",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/delete/f36a53de-ffd3-476f-b632-b7d3a1c39e71",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "delete",
+                "f36a53de-ffd3-476f-b632-b7d3a1c39e71"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Save Subject",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mathematics\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get All Subjects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get Subject by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/1042c437-9b39-4713-8e7d-60c9b12a228e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "1042c437-9b39-4713-8e7d-60c9b12a228e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Update Subject",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/update/1042c437-9b39-4713-8e7d-60c9b12a228e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "update",
+                "1042c437-9b39-4713-8e7d-60c9b12a228e"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Advanced Mathematics\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Subject",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/delete/1042c437-9b39-4713-8e7d-60c9b12a228e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "delete",
+                "1042c437-9b39-4713-8e7d-60c9b12a228e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Save Teacher",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Patrick\",\n  \"lastName\": \"Dushimimana\",\n  \"email\": \"patrick.d@auca.ac.rw\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get All Teachers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get Teacher by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/5f83f4b9-14ea-4827-8ac3-198157b08561",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Update Teacher",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/update/5f83f4b9-14ea-4827-8ac3-198157b08561",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "update",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Patrick\",\n  \"lastName\": \"Dushimimana\",\n  \"email\": \"pdushime@auca.ac.rw\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Teacher",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/delete/5f83f4b9-14ea-4827-8ac3-198157b08561",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "delete",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Save Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/students/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Idriss\",\n  \"lastName\": \"Uwimana\",\n  \"regNumber\": \"STU27836\",\n  \"parentName\": \"Allamine\",\n  \"parentPhone\": \"+250788000111\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get Student by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/0dea7714-9031-4059-b6fc-fe0705d44753",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "0dea7714-9031-4059-b6fc-fe0705d44753"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/students/update/0dea7714-9031-4059-b6fc-fe0705d44753",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "update",
+                "0dea7714-9031-4059-b6fc-fe0705d44753"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Idriss\",\n  \"lastName\": \"Uwimana\",\n  \"regNumber\": \"STU27836\",\n  \"parentName\": \"Allamine Ali\",\n  \"parentPhone\": \"+250788000222\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/delete/0dea7714-9031-4059-b6fc-fe0705d44753",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "delete",
+                "0dea7714-9031-4059-b6fc-fe0705d44753"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Save Parent Meeting",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meetingDate\": \"2026-11-15\",\n  \"status\": \"REQUESTED\",\n  \"reason\": \"Academic Performance Review\",\n  \"teacher\": {\"id\": \"5f83f4b9-14ea-4827-8ac3-198157b08561\"},\n  \"student\": {\"id\": \"0dea7714-9031-4059-b6fc-fe0705d44753\"}\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get All Parent Meetings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Get Parent Meeting by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/33333333-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "33333333-0000-0000-0000-000000000001"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Update Parent Meeting",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/update/33333333-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "update",
+                "33333333-0000-0000-0000-000000000001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meetingDate\": \"2026-11-16\",\n  \"status\": \"REQUESTED\",\n  \"reason\": \"Mid-term Exam Review\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Parent Meeting",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/delete/33333333-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "delete",
+                "33333333-0000-0000-0000-000000000001"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 - Delete Meeting Note",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/meeting-notes/delete/44444444-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "meeting-notes",
+                "delete",
+                "44444444-0000-0000-0000-000000000001"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part B - Derived Queries",
+      "item": [
+        {
+          "name": "B1 - Find Students by Last Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/by-last-name?lastName=Uwimana",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "Uwimana"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B2 - Find Parent Meetings by Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/by-status?status=REQUESTED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "REQUESTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B3 - Find Parent Meetings Between Dates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/between?start=2026-11-01&end=2026-11-30",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-11-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-11-30"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part C - JPQL Queries with Joins",
+      "item": [
+        {
+          "name": "C1 - Find Teachers by Subject Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/by-subject?name=Mathematics",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "by-subject"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Mathematics"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C2 - Find Students of Teacher",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/students/of-teacher/5f83f4b9-14ea-4827-8ac3-198157b08561",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "students",
+                "of-teacher",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C3 - Find Free Classrooms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/classrooms/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "classrooms",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C4 - Find Unused Subjects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/subjects/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "subjects",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part D - Business Rules",
+      "item": [
+        {
+          "name": "D1 - Prevent Conflict or Past Meeting Date",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"meetingDate\": \"2020-01-01\",\n  \"status\": \"REQUESTED\",\n  \"reason\": \"Test Past Date Rule\",\n  \"teacher\": {\"id\": \"5f83f4b9-14ea-4827-8ac3-198157b08561\"},\n  \"student\": {\"id\": \"0dea7714-9031-4059-b6fc-fe0705d44753\"}\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D2 - Assign Subject to Teacher",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/5f83f4b9-14ea-4827-8ac3-198157b08561/subjects/1042c437-9b39-4713-8e7d-60c9b12a228e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561",
+                "subjects",
+                "1042c437-9b39-4713-8e7d-60c9b12a228e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3 - Move Teacher to Classroom",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/teachers/5f83f4b9-14ea-4827-8ac3-198157b08561/classroom?roomNumber=101",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "teachers",
+                "5f83f4b9-14ea-4827-8ac3-198157b08561",
+                "classroom"
+              ],
+              "query": [
+                {
+                  "key": "roomNumber",
+                  "value": "101"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4 - Transition Meeting Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/33333333-0000-0000-0000-000000000001/status?status=CONFIRMED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "33333333-0000-0000-0000-000000000001",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "CONFIRMED"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part E - Meeting Notes (Dependent Entity)",
+      "item": [
+        {
+          "name": "E1 - Save Meeting Note for Held Meeting",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/meeting-notes/save?parentMeetingId=33333333-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "meeting-notes",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "parentMeetingId",
+                  "value": "{{meetingId}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"topic\": \"Behavior and Math Progress\",\n  \"summary\": \"Discussed student focus in class and upcoming test preparation.\",\n  \"followUpDays\": 14,\n  \"writtenDate\": \"2026-11-15\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E2 - Find Notes by Student Registration Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/meeting-notes/student/STU27836",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "meeting-notes",
+                "student",
+                "STU27836"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3 - Protect Meeting Deletion when Notes Exist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/delete/33333333-0000-0000-0000-000000000001",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "delete",
+                "33333333-0000-0000-0000-000000000001"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Part F - Reports & Bulk Operations",
+      "item": [
+        {
+          "name": "F1 - Parent Meeting Stats Grouped by Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "F2 - Bulk Cancel Teacher Meetings on Date",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/cancel-day?teacherId=5f83f4b9-14ea-4827-8ac3-198157b08561&date=2026-11-15",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "teacherId",
+                  "value": "{{teacherId}}"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-11-15"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bonus Features",
+      "item": [
+        {
+          "name": "Bonus - Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bonus - Parent Meetings Pagination and Sorting",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/parent-meetings/page?page=0&size=5&sort=meetingDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "parent-meetings",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "meetingDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
